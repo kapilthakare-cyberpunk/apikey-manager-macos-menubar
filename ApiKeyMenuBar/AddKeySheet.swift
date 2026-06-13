@@ -10,7 +10,7 @@ struct AddKeySheet: View {
     @State private var showKey = false
     @State private var selectedProvider: String?
     
-    let providers = [
+    let providers: [(String, String, Color)] = [
         ("OpenAI", "brain.head.profile", .green),
         ("Anthropic", "a.circle.fill", .orange),
         ("Google AI", "g.circle.fill", .blue),
@@ -180,6 +180,8 @@ struct AddKeySheet: View {
     }
 }
 
-#Preview {
-    AddKeySheet(keyManager: ApiKeyManager(), isPresented: .constant(true))
+struct AddKeySheet_Previews: PreviewProvider {
+    static var previews: some View {
+        AddKeySheet(keyManager: ApiKeyManager(), isPresented: .constant(true))
+    }
 }

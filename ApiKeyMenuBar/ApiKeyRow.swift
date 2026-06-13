@@ -120,19 +120,21 @@ struct ApiKeyRow: View {
     }
 }
 
-#Preview {
-    VStack {
-        ApiKeyRow(
-            key: ApiKey(name: "GPT-4 Production", provider: "OpenAI", key: "sk-abc123def456ghi789"),
-            onDelete: {},
-            onCopy: {}
-        )
-        ApiKeyRow(
-            key: ApiKey(name: "Claude API", provider: "Anthropic", key: "sk-ant-abc123"),
-            onDelete: {},
-            onCopy: {}
-        )
+struct ApiKeyRow_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            ApiKeyRow(
+                key: ApiKey(name: "GPT-4 Production", provider: "OpenAI", key: "sk-abc123def456ghi789"),
+                onDelete: {},
+                onCopy: {}
+            )
+            ApiKeyRow(
+                key: ApiKey(name: "Claude API", provider: "Anthropic", key: "sk-ant-abc123"),
+                onDelete: {},
+                onCopy: {}
+            )
+        }
+        .frame(width: 340)
+        .padding()
     }
-    .frame(width: 340)
-    .padding()
 }

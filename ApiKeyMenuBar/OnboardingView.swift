@@ -8,13 +8,16 @@ struct OnboardingView: View {
     var body: some View {
         VStack(spacing: 0) {
             // Pages
-            TabView(selection: $currentPage) {
-                welcomePage.tag(0)
-                featuresPage.tag(1)
-                readyPage.tag(2)
+            ZStack {
+                if currentPage == 0 {
+                    welcomePage
+                } else if currentPage == 1 {
+                    featuresPage
+                } else {
+                    readyPage
+                }
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .animation(.easeInOut, value: currentPage)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             // Bottom Controls
             HStack {
@@ -145,6 +148,8 @@ struct OnboardingView: View {
     }
 }
 
-#Preview {
-    OnboardingView(onComplete: {})
+struct OnboardingView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnboardingView(onComplete: {})
+    }
 }
