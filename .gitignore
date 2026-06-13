@@ -1,0 +1,8 @@
+.build/
+.build/
+Packages/
+*.xcodeproj/
+xcuserdata/
+DerivedData/
+*.swp
+*~.nib
